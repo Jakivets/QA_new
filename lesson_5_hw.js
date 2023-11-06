@@ -7,6 +7,7 @@
 
 function map(fn, array) {
   // ваш код
+  return array.map(fn);
 }
 
 function square(x) {
@@ -29,7 +30,11 @@ console.log(arr); // [1, 2, 3]
     - кожне речення починає з великої букви, а всі наступні символи в речені робить маленькими
 */
 function formatText(text) {
-  // ваш код
+  return text
+      .replace(/\s+/g, ' ')
+      .replace(/\. /g, ". ")
+      .toLowerCase()
+      .replace(/(^|\.)\s*([a-z])/g, (match, p1, p2) => p1 + p2.toUpperCase());
 }
 
 console.log(formatText("heLLo, this is My teXT.   have A NiCe DaY  ")); // "Hello, this is my text. Have a nice day"
@@ -41,6 +46,7 @@ console.log(formatText(" Hello woRld   ")); // "Hello world"
 
 function countVowels(arr) {
   // Ваш код
+  return (arr.match(/[aeiouAEIOU]/g) || []).length;
 }
 
 console.log(countVowels("aaaat")); // виводить 4
@@ -51,6 +57,10 @@ console.log(countVowels("Hello world")); // виводить 3
 */
 function clearStr(str) {
   // Ваш код
+  return str
+      .replace(/[^a-zA-Z0-9 ]/g, '')
+      .replace(/\s{2,}/g, ' ')
+      .trim();
 }
 
 console.log(clearStr("My var: 22 ")); // виведе "My var 22"
